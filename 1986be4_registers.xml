@@ -1,0 +1,751 @@
+<!DOCTYPE Register_Definition_File>
+<Processor name="1986BE4" description="Milandr 1986BE">
+<RegisterGroup name="RST_CLK" start="0x40020000" description="Контроллер тактовой частоты">
+    <Register start="+0x0" size="0" name="CLOCK_STATUS" access="ReadOnly" description="Регистр состояния блока управления тактовой частотой" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="2" size="1" name="HSE" description="HSE" />
+		<BitField start="1" size="1" name="PLL" description="PLL" />
+    </Register>
+    <Register start="+0x4" size="0" name="PLL_CONTROL" access="Read/Write" description="Регистр управления блоками умножения частоты" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="8" size="4" name="PLL_MUL" description="PLL Multiply" />
+		<BitField start="3" size="1" name="PLL_RELOAD" description="PLL RELOAD" />
+		<BitField start="2" size="1" name="PLL_ENABLE" description="PLL ENABLE" />
+    </Register>
+    <Register start="+0x8" size="0" name="HS_CONTROL" access="Read/Write" description="Регистр управления высокочастотным генератором и осциллятором" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="1" size="1" name="HSE_BYP" description="HSE BYP" />
+		<BitField start="0" size="1" name="HSE_ENABLE" description="HSE ENABLE" />
+	</Register>
+	<Register start="+0xC" size="0" name="CPU_CLOCK" access="Read/Write" description="Регистр управления тактовой частотой процессорного ядра" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="8" size="2" name="CPU_HCLK" description="CPU_HCLK" />
+		<BitField start="4" size="4" name="CPU_C3" description="CPU_C3" />
+		<BitField start="2" size="1" name="CPU_C2" description="CPU_C2" />
+		<BitField start="0" size="2" name="CPU_C1" description="CPU_C1" />
+	</Register>
+	<Register start="+0x10" size="0" name="PER1_CLOCK" access="Read/Write" description="Регистр управления тактовой частотой периферийных блоков" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="5" size="1" name="DMA_EN " description="DMA_EN " />
+		<BitField start="4" size="1" name="DEBUG_EN" description="DEBUG_EN" />
+		<BitField start="2" size="2" name="PER1_C2" description="PER1_C2" />
+		<BitField start="0" size="2" name="PER1_C1" description="PER1_C1" />
+	</Register>
+	<Register start="+0x1C" size="0" name="PER2_CLOCK" access="Read/Write" description="Регистр управления тактовой частотой периферийных блоков" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="19" size="1" name="CRC" description="CRC_CLOCK" />
+		<BitField start="18" size="1" name="PORTC" description="PORTC_CLOCK" />
+		<BitField start="17" size="1" name="PORTB" description="PORTB_CLOCK" />
+		<BitField start="16" size="1" name="PORTA" description="PORTA_CLOCK" />
+		<BitField start="15" size="1" name="TIMER2" description="TIMER2_CLOCK" />
+		<BitField start="14" size="1" name="TIMER1" description="TIMER1_CLOCK" />
+		<BitField start="13" size="1" name="ADCIU" description="ADCIU_CLOCK" />
+		<BitField start="12" size="1" name="BKP" description="BKP_CLOCK" />
+		<BitField start="11" size="1" name="POWER" description="POWER_CLOCK" />
+		<BitField start="10" size="1" name="IWDT" description="IWDT_CLOCK" />
+		<BitField start="9" size="1" name="WWDT" description="WWDT_CLOCK" />
+		<BitField start="8" size="1" name="ADC" description="ADC_CLOCK" />
+		<BitField start="7" size="1" name="DAC" description="DAC_CLOCK" />
+		<BitField start="6" size="1" name="COMP" description="COMP_CLOCK" />
+		<BitField start="5" size="1" name="DMA" description="DMA_CLOCK" />
+		<BitField start="4" size="1" name="RST_CLK" description="RST_CLK_CLOCK" />
+		<BitField start="3" size="1" name="EEPROM" description="EEPROM_CLOCK" />
+		<BitField start="2" size="1" name="UART2" description="UART2_CLOCK" />
+		<BitField start="1" size="1" name="UART1" description="UART1_CLOCK" />
+		<BitField start="0" size="1" name="SPI" description="SPI_CLOCK" />
+	</Register>
+ </RegisterGroup>
+ 
+ <RegisterGroup name="GPIOA" start="0x40080000" description="GPIOB">
+	<Register start="+0x0" size="0" name="RXTX" access="Read/Write" description="GPIO data" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="1" name="RXTX0" description="RXTX0" />
+		<BitField start="1" size="1" name="RXTX1" description="RXTX1" />
+		<BitField start="2" size="1" name="RXTX2" description="RXTX2" />
+		<BitField start="3" size="1" name="RXTX3" description="RXTX3" />
+		<BitField start="4" size="1" name="RXTX4" description="RXTX4" />
+		<BitField start="5" size="1" name="RXTX5" description="RXTX5" />
+		<BitField start="6" size="1" name="RXTX6" description="RXTX6" />
+		<BitField start="7" size="1" name="RXTX7" description="RXTX7" />
+		<BitField start="8" size="1" name="RXTX8" description="RXTX8" />
+		<BitField start="9" size="1" name="RXTX9" description="RXTX9" />
+		<BitField start="10" size="1" name="RXTX10" description="RXTX10" />
+		<BitField start="11" size="1" name="RXTX11" description="RXTX11" />
+		<BitField start="12" size="1" name="RXTX12" description="RXTX12" />
+		<BitField start="13" size="1" name="RXTX13" description="RXTX13" />
+		<BitField start="14" size="1" name="RXTX14" description="RXTX14" />
+		<BitField start="15" size="1" name="RXTX15" description="RXTX15" />
+	</Register>
+	<Register start="+0x4" size="0" name="OE" access="Read/Write" description="Input/Output" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="1" name="OE0" description="OE0" />
+		<BitField start="1" size="1" name="OE1" description="OE1" />
+		<BitField start="2" size="1" name="OE2" description="OE2" />
+		<BitField start="3" size="1" name="OE3" description="OE3" />
+		<BitField start="4" size="1" name="OE4" description="OE4" />
+		<BitField start="5" size="1" name="OE5" description="OE5" />
+		<BitField start="6" size="1" name="OE6" description="OE6" />
+		<BitField start="7" size="1" name="OE7" description="OE7" />
+		<BitField start="8" size="1" name="OE8" description="OE8" />
+		<BitField start="9" size="1" name="OE9" description="OE9" />
+		<BitField start="10" size="1" name="OE10" description="OE10" />
+		<BitField start="11" size="1" name="OE11" description="OE11" />
+		<BitField start="12" size="1" name="OE12" description="OE12" />
+		<BitField start="13" size="1" name="OE13" description="OE13" />
+		<BitField start="14" size="1" name="OE14" description="OE14" />
+		<BitField start="15" size="1" name="OE15" description="OE15" />
+	</Register>
+	<Register start="+0x8" size="0" name="FUNC" access="Read/Write" description="Function" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="2" name="FUNC0" description="FUNC0" />
+		<BitField start="2" size="2" name="FUNC1" description="FUNC1" />
+		<BitField start="4" size="2" name="FUNC2" description="FUNC2" />
+		<BitField start="6" size="2" name="FUNC3" description="FUNC3" />
+		<BitField start="8" size="2" name="FUNC4" description="FUNC4" />
+		<BitField start="10" size="2" name="FUNC5" description="FUNC5" />
+		<BitField start="12" size="2" name="FUNC6" description="FUNC6" />
+		<BitField start="14" size="2" name="FUNC7" description="FUNC7" />
+		<BitField start="16" size="2" name="FUNC8" description="FUNC8" />
+		<BitField start="18" size="2" name="FUNC9" description="FUNC9" />
+		<BitField start="20" size="2" name="FUNC10" description="FUNC10" />
+		<BitField start="22" size="2" name="FUNC11" description="FUNC11" />
+		<BitField start="24" size="2" name="FUNC12" description="FUNC12" />
+		<BitField start="26" size="2" name="FUNC13" description="FUNC13" />
+		<BitField start="28" size="2" name="FUNC14" description="FUNC14" />
+		<BitField start="30" size="2" name="FUNC15" description="FUNC15" />
+	</Register>
+	<Register start="+0xС" size="0" name="ANALOG" access="Read/Write" description="GPIO mode" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="1" name="ANALOG0" description="ANALOG0" />
+		<BitField start="1" size="1" name="ANALOG1" description="ANALOG1" />
+		<BitField start="2" size="1" name="ANALOG2" description="ANALOG2" />
+		<BitField start="3" size="1" name="ANALOG3" description="ANALOG3" />
+		<BitField start="4" size="1" name="ANALOG4" description="ANALOG4" />
+		<BitField start="5" size="1" name="ANALOG5" description="ANALOG5" />
+		<BitField start="6" size="1" name="ANALOG6" description="ANALOG6" />
+		<BitField start="7" size="1" name="ANALOG7" description="ANALOG7" />
+		<BitField start="8" size="1" name="ANALOG8" description="ANALOG8" />
+		<BitField start="9" size="1" name="ANALOG9" description="ANALOG9" />
+		<BitField start="10" size="1" name="ANALOG10" description="ANALOG10" />
+		<BitField start="11" size="1" name="ANALOG11" description="ANALOG11" />
+		<BitField start="12" size="1" name="ANALOG12" description="ANALOG12" />
+		<BitField start="13" size="1" name="ANALOG13" description="ANALOG13" />
+		<BitField start="14" size="1" name="ANALOG14" description="ANALOG14" />
+		<BitField start="15" size="1" name="ANALOG15" description="ANALOG15" />
+	</Register>
+	<Register start="+0x10" size="0" name="PULL" access="Read/Write" description="GPIO pull" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="1" name="PULL_DOWN_0" description="PULL_DOWN_0" />
+		<BitField start="1" size="1" name="PULL_DOWN_1" description="PULL_DOWN_1" />
+		<BitField start="2" size="1" name="PULL_DOWN_2" description="PULL_DOWN_2" />
+		<BitField start="3" size="1" name="PULL_DOWN_3" description="PULL_DOWN_3" />
+		<BitField start="4" size="1" name="PULL_DOWN_4" description="PULL_DOWN_4" />
+		<BitField start="5" size="1" name="PULL_DOWN_5" description="PULL_DOWN_5" />
+		<BitField start="6" size="1" name="PULL_DOWN_6" description="PULL_DOWN_6" />
+		<BitField start="7" size="1" name="PULL_DOWN_7" description="PULL_DOWN_7" />
+		<BitField start="8" size="1" name="PULL_DOWN_8" description="PULL_DOWN_8" />
+		<BitField start="9" size="1" name="PULL_DOWN_9" description="PULL_DOWN_9" />
+		<BitField start="10" size="1" name="PULL_DOWN_10" description="PULL_DOWN_10" />
+		<BitField start="11" size="1" name="PULL_DOWN_11" description="PULL_DOWN_11" />
+		<BitField start="12" size="1" name="PULL_DOWN_12" description="PULL_DOWN_12" />
+		<BitField start="13" size="1" name="PULL_DOWN_13" description="PULL_DOWN_13" />
+		<BitField start="14" size="1" name="PULL_DOWN_14" description="PULL_DOWN_14" />
+		<BitField start="15" size="1" name="PULL_DOWN_15" description="PULL_DOWN_15" />
+		<BitField start="16" size="1" name="PULL_UP_0" description="PULL_UP_0" />
+		<BitField start="17" size="1" name="PULL_UP_1" description="PULL_UP_1" />
+		<BitField start="18" size="1" name="PULL_UP_2" description="PULL_UP_2" />
+		<BitField start="19" size="1" name="PULL_UP_3" description="PULL_UP_3" />
+		<BitField start="20" size="1" name="PULL_UP_4" description="PULL_UP_4" />
+		<BitField start="21" size="1" name="PULL_UP_5" description="PULL_UP_5" />
+		<BitField start="22" size="1" name="PULL_UP_6" description="PULL_UP_6" />
+		<BitField start="23" size="1" name="PULL_UP_7" description="PULL_UP_7" />
+		<BitField start="24" size="1" name="PULL_UP_8" description="PULL_UP_8" />
+		<BitField start="25" size="1" name="PULL_UP_9" description="PULL_UP_9" />
+		<BitField start="26" size="1" name="PULL_UP_10" description="PULL_UP_10" />
+		<BitField start="27" size="1" name="PULL_UP_11" description="PULL_UP_11" />
+		<BitField start="28" size="1" name="PULL_UP_12" description="PULL_UP_12" />
+		<BitField start="29" size="1" name="PULL_UP_13" description="PULL_UP_13" />
+		<BitField start="30" size="1" name="PULL_UP_14" description="PULL_UP_14" />
+		<BitField start="31" size="1" name="PULL_UP_15" description="PULL_UP_15" />
+	</Register>
+	<Register start="+0x14" size="0" name="PD" access="Read/Write" description="GPIO output type" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="1" name="PD0" description="PD0" />
+		<BitField start="1" size="1" name="PD1" description="PD1" />
+		<BitField start="2" size="1" name="PD2" description="PD2" />
+		<BitField start="3" size="1" name="PD3" description="PD3" />
+		<BitField start="4" size="1" name="PD4" description="PD4" />
+		<BitField start="5" size="1" name="PD5" description="PD5" />
+		<BitField start="6" size="1" name="PD6" description="PD6" />
+		<BitField start="7" size="1" name="PD7" description="PD7" />
+		<BitField start="8" size="1" name="PD8" description="PD8" />
+		<BitField start="9" size="1" name="PD9" description="PD9" />
+		<BitField start="10" size="1" name="PD10" description="PD10" />
+		<BitField start="11" size="1" name="PD11" description="PD11" />
+		<BitField start="12" size="1" name="PD12" description="PD12" />
+		<BitField start="13" size="1" name="PD13" description="PD13" />
+		<BitField start="14" size="1" name="PD14" description="PD14" />
+		<BitField start="15" size="1" name="PD15" description="PD15" />
+		<BitField start="16" size="1" name="SHM0" description="SHM0" />
+		<BitField start="17" size="1" name="SHM1" description="SHM1" />
+		<BitField start="18" size="1" name="SHM2" description="SHM2" />
+		<BitField start="19" size="1" name="SHM3" description="SHM3" />
+		<BitField start="20" size="1" name="SHM4" description="SHM4" />
+		<BitField start="21" size="1" name="SHM5" description="SHM5" />
+		<BitField start="22" size="1" name="SHM6" description="SHM6" />
+		<BitField start="23" size="1" name="SHM7" description="SHM7" />
+		<BitField start="24" size="1" name="SHM8" description="SHM8" />
+		<BitField start="25" size="1" name="SHM9" description="SHM9" />
+		<BitField start="26" size="1" name="SHM10" description="SHM10" />
+		<BitField start="27" size="1" name="SHM11" description="SHM11" />
+		<BitField start="28" size="1" name="SHM12" description="SHM12" />
+		<BitField start="29" size="1" name="SHM13" description="SHM13" />
+		<BitField start="30" size="1" name="SHM14" description="SHM14" />
+		<BitField start="31" size="1" name="SHM15" description="SHM15" />
+	</Register>
+	<Register start="+0x18" size="0" name="PWR" access="Read/Write" description="GPIO power" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="2" name="PWR0" description="PWR0" />
+		<BitField start="2" size="2" name="PWR1" description="PWR1" />
+		<BitField start="4" size="2" name="PWR2" description="PWR2" />
+		<BitField start="6" size="2" name="PWR3" description="PWR3" />
+		<BitField start="8" size="2" name="PWR4" description="PWR4" />
+		<BitField start="10" size="2" name="PWR5" description="PWR5" />
+		<BitField start="12" size="2" name="PWR6" description="PWR6" />
+		<BitField start="14" size="2" name="PWR7" description="PWR7" />
+		<BitField start="16" size="2" name="PWR8" description="PWR8" />
+		<BitField start="18" size="2" name="PWR9" description="PWR9" />
+		<BitField start="20" size="2" name="PWR10" description="PWR10" />
+		<BitField start="22" size="2" name="PWR11" description="PWR11" />
+		<BitField start="24" size="2" name="PWR12" description="PWR12" />
+		<BitField start="26" size="2" name="PWR13" description="PWR13" />
+		<BitField start="28" size="2" name="PWR14" description="PWR14" />
+		<BitField start="30" size="2" name="PWR15" description="PWR15" />
+	</Register>
+	<Register start="+0x1C" size="0" name="GFEN" access="Read/Write" description="GPIO filter" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="1" name="GFEN0" description="GFEN0" />
+		<BitField start="1" size="1" name="GFEN1" description="GFEN1" />
+		<BitField start="2" size="1" name="GFEN2" description="GFEN2" />
+		<BitField start="3" size="1" name="GFEN3" description="GFEN3" />
+		<BitField start="4" size="1" name="GFEN4" description="GFEN4" />
+		<BitField start="5" size="1" name="GFEN5" description="GFEN5" />
+		<BitField start="6" size="1" name="GFEN6" description="GFEN6" />
+		<BitField start="7" size="1" name="GFEN7" description="GFEN7" />
+		<BitField start="8" size="1" name="GFEN8" description="GFEN8" />
+		<BitField start="9" size="1" name="GFEN9" description="GFEN9" />
+		<BitField start="10" size="1" name="GFEN10" description="GFEN10" />
+		<BitField start="11" size="1" name="GFEN11" description="GFEN11" />
+		<BitField start="12" size="1" name="GFEN12" description="GFEN12" />
+		<BitField start="13" size="1" name="GFEN13" description="GFEN13" />
+		<BitField start="14" size="1" name="GFEN14" description="GFEN14" />
+		<BitField start="15" size="1" name="GFEN15" description="GFEN15" />
+	</Register>
+	<Register start="+0x20" size="0" name="SETTX" access="WriteOnly" description="GPIO set" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="1" name="SETTX0" description="SETTX0" />
+		<BitField start="1" size="1" name="SETTX1" description="SETTX1" />
+		<BitField start="2" size="1" name="SETTX2" description="SETTX2" />
+		<BitField start="3" size="1" name="SETTX3" description="SETTX3" />
+		<BitField start="4" size="1" name="SETTX4" description="SETTX4" />
+		<BitField start="5" size="1" name="SETTX5" description="SETTX5" />
+		<BitField start="6" size="1" name="SETTX6" description="SETTX6" />
+		<BitField start="7" size="1" name="SETTX7" description="SETTX7" />
+		<BitField start="8" size="1" name="SETTX8" description="SETTX8" />
+		<BitField start="9" size="1" name="SETTX9" description="SETTX9" />
+		<BitField start="10" size="1" name="SETTX10" description="SETTX10" />
+		<BitField start="11" size="1" name="SETTX11" description="SETTX11" />
+		<BitField start="12" size="1" name="SETTX12" description="SETTX12" />
+		<BitField start="13" size="1" name="SETTX13" description="SETTX13" />
+		<BitField start="14" size="1" name="SETTX14" description="SETTX14" />
+		<BitField start="15" size="1" name="SETTX15" description="SETTX15" />
+	</Register>
+	<Register start="+0x24" size="0" name="CLRTX" access="WriteOnly" description="GPIO clear" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="1" name="CLRTX0" description="CLRTX0" />
+		<BitField start="1" size="1" name="CLRTX1" description="CLRTX1" />
+		<BitField start="2" size="1" name="CLRTX2" description="CLRTX2" />
+		<BitField start="3" size="1" name="CLRTX3" description="CLRTX3" />
+		<BitField start="4" size="1" name="CLRTX4" description="CLRTX4" />
+		<BitField start="5" size="1" name="CLRTX5" description="CLRTX5" />
+		<BitField start="6" size="1" name="CLRTX6" description="CLRTX6" />
+		<BitField start="7" size="1" name="CLRTX7" description="CLRTX7" />
+		<BitField start="8" size="1" name="CLRTX8" description="CLRTX8" />
+		<BitField start="9" size="1" name="CLRTX9" description="CLRTX9" />
+		<BitField start="10" size="1" name="CLRTX10" description="CLRTX10" />
+		<BitField start="11" size="1" name="CLRTX11" description="CLRTX11" />
+		<BitField start="12" size="1" name="CLRTX12" description="CLRTX12" />
+		<BitField start="13" size="1" name="CLRTX13" description="CLRTX13" />
+		<BitField start="14" size="1" name="CLRTX14" description="CLRTX14" />
+		<BitField start="15" size="1" name="CLRTX15" description="CLRTX15" />
+	</Register>
+	<Register start="+0x28" size="0" name="RDTX" access="ReadOnly" description="GPIO read" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="1" name="RDTX0" description="RDTX0" />
+		<BitField start="1" size="1" name="RDTX1" description="RDTX1" />
+		<BitField start="2" size="1" name="RDTX2" description="RDTX2" />
+		<BitField start="3" size="1" name="RDTX3" description="RDTX3" />
+		<BitField start="4" size="1" name="RDTX4" description="RDTX4" />
+		<BitField start="5" size="1" name="RDTX5" description="RDTX5" />
+		<BitField start="6" size="1" name="RDTX6" description="RDTX6" />
+		<BitField start="7" size="1" name="RDTX7" description="RDTX7" />
+		<BitField start="8" size="1" name="RDTX8" description="RDTX8" />
+		<BitField start="9" size="1" name="RDTX9" description="RDTX9" />
+		<BitField start="10" size="1" name="RDTX10" description="RDTX10" />
+		<BitField start="11" size="1" name="RDTX11" description="RDTX11" />
+		<BitField start="12" size="1" name="RDTX12" description="RDTX12" />
+		<BitField start="13" size="1" name="RDTX13" description="RDTX13" />
+		<BitField start="14" size="1" name="RDTX14" description="RDTX14" />
+		<BitField start="15" size="1" name="RDTX15" description="RDTX15" />
+	</Register>
+</RegisterGroup>
+
+<RegisterGroup name="GPIOB" start="0x40088000" description="GPIOB">
+	<Register start="+0x0" size="0" name="RXTX" access="Read/Write" description="GPIO data" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="1" name="RXTX0" description="RXTX0" />
+		<BitField start="1" size="1" name="RXTX1" description="RXTX1" />
+		<BitField start="2" size="1" name="RXTX2" description="RXTX2" />
+		<BitField start="3" size="1" name="RXTX3" description="RXTX3" />
+		<BitField start="4" size="1" name="RXTX4" description="RXTX4" />
+		<BitField start="5" size="1" name="RXTX5" description="RXTX5" />
+		<BitField start="6" size="1" name="RXTX6" description="RXTX6" />
+		<BitField start="7" size="1" name="RXTX7" description="RXTX7" />
+		<BitField start="8" size="1" name="RXTX8" description="RXTX8" />
+		<BitField start="9" size="1" name="RXTX9" description="RXTX9" />
+		<BitField start="10" size="1" name="RXTX10" description="RXTX10" />
+		<BitField start="11" size="1" name="RXTX11" description="RXTX11" />
+		<BitField start="12" size="1" name="RXTX12" description="RXTX12" />
+		<BitField start="13" size="1" name="RXTX13" description="RXTX13" />
+		<BitField start="14" size="1" name="RXTX14" description="RXTX14" />
+		<BitField start="15" size="1" name="RXTX15" description="RXTX15" />
+	</Register>
+	<Register start="+0x4" size="0" name="OE" access="Read/Write" description="Input/Output" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="1" name="OE0" description="OE0" />
+		<BitField start="1" size="1" name="OE1" description="OE1" />
+		<BitField start="2" size="1" name="OE2" description="OE2" />
+		<BitField start="3" size="1" name="OE3" description="OE3" />
+		<BitField start="4" size="1" name="OE4" description="OE4" />
+		<BitField start="5" size="1" name="OE5" description="OE5" />
+		<BitField start="6" size="1" name="OE6" description="OE6" />
+		<BitField start="7" size="1" name="OE7" description="OE7" />
+		<BitField start="8" size="1" name="OE8" description="OE8" />
+		<BitField start="9" size="1" name="OE9" description="OE9" />
+		<BitField start="10" size="1" name="OE10" description="OE10" />
+		<BitField start="11" size="1" name="OE11" description="OE11" />
+		<BitField start="12" size="1" name="OE12" description="OE12" />
+		<BitField start="13" size="1" name="OE13" description="OE13" />
+		<BitField start="14" size="1" name="OE14" description="OE14" />
+		<BitField start="15" size="1" name="OE15" description="OE15" />
+	</Register>
+	<Register start="+0x8" size="0" name="FUNC" access="Read/Write" description="Function" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="2" name="FUNC0" description="FUNC0" />
+		<BitField start="2" size="2" name="FUNC1" description="FUNC1" />
+		<BitField start="4" size="2" name="FUNC2" description="FUNC2" />
+		<BitField start="6" size="2" name="FUNC3" description="FUNC3" />
+		<BitField start="8" size="2" name="FUNC4" description="FUNC4" />
+		<BitField start="10" size="2" name="FUNC5" description="FUNC5" />
+		<BitField start="12" size="2" name="FUNC6" description="FUNC6" />
+		<BitField start="14" size="2" name="FUNC7" description="FUNC7" />
+		<BitField start="16" size="2" name="FUNC8" description="FUNC8" />
+		<BitField start="18" size="2" name="FUNC9" description="FUNC9" />
+		<BitField start="20" size="2" name="FUNC10" description="FUNC10" />
+		<BitField start="22" size="2" name="FUNC11" description="FUNC11" />
+		<BitField start="24" size="2" name="FUNC12" description="FUNC12" />
+		<BitField start="26" size="2" name="FUNC13" description="FUNC13" />
+		<BitField start="28" size="2" name="FUNC14" description="FUNC14" />
+		<BitField start="30" size="2" name="FUNC15" description="FUNC15" />
+	</Register>
+	<Register start="+0xС" size="0" name="ANALOG" access="Read/Write" description="GPIO mode" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="1" name="ANALOG0" description="ANALOG0" />
+		<BitField start="1" size="1" name="ANALOG1" description="ANALOG1" />
+		<BitField start="2" size="1" name="ANALOG2" description="ANALOG2" />
+		<BitField start="3" size="1" name="ANALOG3" description="ANALOG3" />
+		<BitField start="4" size="1" name="ANALOG4" description="ANALOG4" />
+		<BitField start="5" size="1" name="ANALOG5" description="ANALOG5" />
+		<BitField start="6" size="1" name="ANALOG6" description="ANALOG6" />
+		<BitField start="7" size="1" name="ANALOG7" description="ANALOG7" />
+		<BitField start="8" size="1" name="ANALOG8" description="ANALOG8" />
+		<BitField start="9" size="1" name="ANALOG9" description="ANALOG9" />
+		<BitField start="10" size="1" name="ANALOG10" description="ANALOG10" />
+		<BitField start="11" size="1" name="ANALOG11" description="ANALOG11" />
+		<BitField start="12" size="1" name="ANALOG12" description="ANALOG12" />
+		<BitField start="13" size="1" name="ANALOG13" description="ANALOG13" />
+		<BitField start="14" size="1" name="ANALOG14" description="ANALOG14" />
+		<BitField start="15" size="1" name="ANALOG15" description="ANALOG15" />
+	</Register>
+	<Register start="+0x10" size="0" name="PULL" access="Read/Write" description="GPIO pull" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="1" name="PULL_DOWN_0" description="PULL_DOWN_0" />
+		<BitField start="1" size="1" name="PULL_DOWN_1" description="PULL_DOWN_1" />
+		<BitField start="2" size="1" name="PULL_DOWN_2" description="PULL_DOWN_2" />
+		<BitField start="3" size="1" name="PULL_DOWN_3" description="PULL_DOWN_3" />
+		<BitField start="4" size="1" name="PULL_DOWN_4" description="PULL_DOWN_4" />
+		<BitField start="5" size="1" name="PULL_DOWN_5" description="PULL_DOWN_5" />
+		<BitField start="6" size="1" name="PULL_DOWN_6" description="PULL_DOWN_6" />
+		<BitField start="7" size="1" name="PULL_DOWN_7" description="PULL_DOWN_7" />
+		<BitField start="8" size="1" name="PULL_DOWN_8" description="PULL_DOWN_8" />
+		<BitField start="9" size="1" name="PULL_DOWN_9" description="PULL_DOWN_9" />
+		<BitField start="10" size="1" name="PULL_DOWN_10" description="PULL_DOWN_10" />
+		<BitField start="11" size="1" name="PULL_DOWN_11" description="PULL_DOWN_11" />
+		<BitField start="12" size="1" name="PULL_DOWN_12" description="PULL_DOWN_12" />
+		<BitField start="13" size="1" name="PULL_DOWN_13" description="PULL_DOWN_13" />
+		<BitField start="14" size="1" name="PULL_DOWN_14" description="PULL_DOWN_14" />
+		<BitField start="15" size="1" name="PULL_DOWN_15" description="PULL_DOWN_15" />
+		<BitField start="16" size="1" name="PULL_UP_0" description="PULL_UP_0" />
+		<BitField start="17" size="1" name="PULL_UP_1" description="PULL_UP_1" />
+		<BitField start="18" size="1" name="PULL_UP_2" description="PULL_UP_2" />
+		<BitField start="19" size="1" name="PULL_UP_3" description="PULL_UP_3" />
+		<BitField start="20" size="1" name="PULL_UP_4" description="PULL_UP_4" />
+		<BitField start="21" size="1" name="PULL_UP_5" description="PULL_UP_5" />
+		<BitField start="22" size="1" name="PULL_UP_6" description="PULL_UP_6" />
+		<BitField start="23" size="1" name="PULL_UP_7" description="PULL_UP_7" />
+		<BitField start="24" size="1" name="PULL_UP_8" description="PULL_UP_8" />
+		<BitField start="25" size="1" name="PULL_UP_9" description="PULL_UP_9" />
+		<BitField start="26" size="1" name="PULL_UP_10" description="PULL_UP_10" />
+		<BitField start="27" size="1" name="PULL_UP_11" description="PULL_UP_11" />
+		<BitField start="28" size="1" name="PULL_UP_12" description="PULL_UP_12" />
+		<BitField start="29" size="1" name="PULL_UP_13" description="PULL_UP_13" />
+		<BitField start="30" size="1" name="PULL_UP_14" description="PULL_UP_14" />
+		<BitField start="31" size="1" name="PULL_UP_15" description="PULL_UP_15" />
+	</Register>
+	<Register start="+0x14" size="0" name="PD" access="Read/Write" description="GPIO output type" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="1" name="PD0" description="PD0" />
+		<BitField start="1" size="1" name="PD1" description="PD1" />
+		<BitField start="2" size="1" name="PD2" description="PD2" />
+		<BitField start="3" size="1" name="PD3" description="PD3" />
+		<BitField start="4" size="1" name="PD4" description="PD4" />
+		<BitField start="5" size="1" name="PD5" description="PD5" />
+		<BitField start="6" size="1" name="PD6" description="PD6" />
+		<BitField start="7" size="1" name="PD7" description="PD7" />
+		<BitField start="8" size="1" name="PD8" description="PD8" />
+		<BitField start="9" size="1" name="PD9" description="PD9" />
+		<BitField start="10" size="1" name="PD10" description="PD10" />
+		<BitField start="11" size="1" name="PD11" description="PD11" />
+		<BitField start="12" size="1" name="PD12" description="PD12" />
+		<BitField start="13" size="1" name="PD13" description="PD13" />
+		<BitField start="14" size="1" name="PD14" description="PD14" />
+		<BitField start="15" size="1" name="PD15" description="PD15" />
+		<BitField start="16" size="1" name="SHM0" description="SHM0" />
+		<BitField start="17" size="1" name="SHM1" description="SHM1" />
+		<BitField start="18" size="1" name="SHM2" description="SHM2" />
+		<BitField start="19" size="1" name="SHM3" description="SHM3" />
+		<BitField start="20" size="1" name="SHM4" description="SHM4" />
+		<BitField start="21" size="1" name="SHM5" description="SHM5" />
+		<BitField start="22" size="1" name="SHM6" description="SHM6" />
+		<BitField start="23" size="1" name="SHM7" description="SHM7" />
+		<BitField start="24" size="1" name="SHM8" description="SHM8" />
+		<BitField start="25" size="1" name="SHM9" description="SHM9" />
+		<BitField start="26" size="1" name="SHM10" description="SHM10" />
+		<BitField start="27" size="1" name="SHM11" description="SHM11" />
+		<BitField start="28" size="1" name="SHM12" description="SHM12" />
+		<BitField start="29" size="1" name="SHM13" description="SHM13" />
+		<BitField start="30" size="1" name="SHM14" description="SHM14" />
+		<BitField start="31" size="1" name="SHM15" description="SHM15" />
+	</Register>
+	<Register start="+0x18" size="0" name="PWR" access="Read/Write" description="GPIO power" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="2" name="PWR0" description="PWR0" />
+		<BitField start="2" size="2" name="PWR1" description="PWR1" />
+		<BitField start="4" size="2" name="PWR2" description="PWR2" />
+		<BitField start="6" size="2" name="PWR3" description="PWR3" />
+		<BitField start="8" size="2" name="PWR4" description="PWR4" />
+		<BitField start="10" size="2" name="PWR5" description="PWR5" />
+		<BitField start="12" size="2" name="PWR6" description="PWR6" />
+		<BitField start="14" size="2" name="PWR7" description="PWR7" />
+		<BitField start="16" size="2" name="PWR8" description="PWR8" />
+		<BitField start="18" size="2" name="PWR9" description="PWR9" />
+		<BitField start="20" size="2" name="PWR10" description="PWR10" />
+		<BitField start="22" size="2" name="PWR11" description="PWR11" />
+		<BitField start="24" size="2" name="PWR12" description="PWR12" />
+		<BitField start="26" size="2" name="PWR13" description="PWR13" />
+		<BitField start="28" size="2" name="PWR14" description="PWR14" />
+		<BitField start="30" size="2" name="PWR15" description="PWR15" />
+	</Register>
+	<Register start="+0x1C" size="0" name="GFEN" access="Read/Write" description="GPIO filter" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="1" name="GFEN0" description="GFEN0" />
+		<BitField start="1" size="1" name="GFEN1" description="GFEN1" />
+		<BitField start="2" size="1" name="GFEN2" description="GFEN2" />
+		<BitField start="3" size="1" name="GFEN3" description="GFEN3" />
+		<BitField start="4" size="1" name="GFEN4" description="GFEN4" />
+		<BitField start="5" size="1" name="GFEN5" description="GFEN5" />
+		<BitField start="6" size="1" name="GFEN6" description="GFEN6" />
+		<BitField start="7" size="1" name="GFEN7" description="GFEN7" />
+		<BitField start="8" size="1" name="GFEN8" description="GFEN8" />
+		<BitField start="9" size="1" name="GFEN9" description="GFEN9" />
+		<BitField start="10" size="1" name="GFEN10" description="GFEN10" />
+		<BitField start="11" size="1" name="GFEN11" description="GFEN11" />
+		<BitField start="12" size="1" name="GFEN12" description="GFEN12" />
+		<BitField start="13" size="1" name="GFEN13" description="GFEN13" />
+		<BitField start="14" size="1" name="GFEN14" description="GFEN14" />
+		<BitField start="15" size="1" name="GFEN15" description="GFEN15" />
+	</Register>
+	<Register start="+0x20" size="0" name="SETTX" access="WriteOnly" description="GPIO set" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="1" name="SETTX0" description="SETTX0" />
+		<BitField start="1" size="1" name="SETTX1" description="SETTX1" />
+		<BitField start="2" size="1" name="SETTX2" description="SETTX2" />
+		<BitField start="3" size="1" name="SETTX3" description="SETTX3" />
+		<BitField start="4" size="1" name="SETTX4" description="SETTX4" />
+		<BitField start="5" size="1" name="SETTX5" description="SETTX5" />
+		<BitField start="6" size="1" name="SETTX6" description="SETTX6" />
+		<BitField start="7" size="1" name="SETTX7" description="SETTX7" />
+		<BitField start="8" size="1" name="SETTX8" description="SETTX8" />
+		<BitField start="9" size="1" name="SETTX9" description="SETTX9" />
+		<BitField start="10" size="1" name="SETTX10" description="SETTX10" />
+		<BitField start="11" size="1" name="SETTX11" description="SETTX11" />
+		<BitField start="12" size="1" name="SETTX12" description="SETTX12" />
+		<BitField start="13" size="1" name="SETTX13" description="SETTX13" />
+		<BitField start="14" size="1" name="SETTX14" description="SETTX14" />
+		<BitField start="15" size="1" name="SETTX15" description="SETTX15" />
+	</Register>
+	<Register start="+0x24" size="0" name="CLRTX" access="WriteOnly" description="GPIO clear" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="1" name="CLRTX0" description="CLRTX0" />
+		<BitField start="1" size="1" name="CLRTX1" description="CLRTX1" />
+		<BitField start="2" size="1" name="CLRTX2" description="CLRTX2" />
+		<BitField start="3" size="1" name="CLRTX3" description="CLRTX3" />
+		<BitField start="4" size="1" name="CLRTX4" description="CLRTX4" />
+		<BitField start="5" size="1" name="CLRTX5" description="CLRTX5" />
+		<BitField start="6" size="1" name="CLRTX6" description="CLRTX6" />
+		<BitField start="7" size="1" name="CLRTX7" description="CLRTX7" />
+		<BitField start="8" size="1" name="CLRTX8" description="CLRTX8" />
+		<BitField start="9" size="1" name="CLRTX9" description="CLRTX9" />
+		<BitField start="10" size="1" name="CLRTX10" description="CLRTX10" />
+		<BitField start="11" size="1" name="CLRTX11" description="CLRTX11" />
+		<BitField start="12" size="1" name="CLRTX12" description="CLRTX12" />
+		<BitField start="13" size="1" name="CLRTX13" description="CLRTX13" />
+		<BitField start="14" size="1" name="CLRTX14" description="CLRTX14" />
+		<BitField start="15" size="1" name="CLRTX15" description="CLRTX15" />
+	</Register>
+	<Register start="+0x28" size="0" name="RDTX" access="ReadOnly" description="GPIO read" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="1" name="RDTX0" description="RDTX0" />
+		<BitField start="1" size="1" name="RDTX1" description="RDTX1" />
+		<BitField start="2" size="1" name="RDTX2" description="RDTX2" />
+		<BitField start="3" size="1" name="RDTX3" description="RDTX3" />
+		<BitField start="4" size="1" name="RDTX4" description="RDTX4" />
+		<BitField start="5" size="1" name="RDTX5" description="RDTX5" />
+		<BitField start="6" size="1" name="RDTX6" description="RDTX6" />
+		<BitField start="7" size="1" name="RDTX7" description="RDTX7" />
+		<BitField start="8" size="1" name="RDTX8" description="RDTX8" />
+		<BitField start="9" size="1" name="RDTX9" description="RDTX9" />
+		<BitField start="10" size="1" name="RDTX10" description="RDTX10" />
+		<BitField start="11" size="1" name="RDTX11" description="RDTX11" />
+		<BitField start="12" size="1" name="RDTX12" description="RDTX12" />
+		<BitField start="13" size="1" name="RDTX13" description="RDTX13" />
+		<BitField start="14" size="1" name="RDTX14" description="RDTX14" />
+		<BitField start="15" size="1" name="RDTX15" description="RDTX15" />
+	</Register>
+</RegisterGroup>
+
+<RegisterGroup name="GPIOC" start="0x40090000" description="GPIOB">
+	<Register start="+0x0" size="0" name="RXTX" access="Read/Write" description="GPIO data" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="1" name="RXTX0" description="RXTX0" />
+		<BitField start="1" size="1" name="RXTX1" description="RXTX1" />
+		<BitField start="2" size="1" name="RXTX2" description="RXTX2" />
+		<BitField start="3" size="1" name="RXTX3" description="RXTX3" />
+		<BitField start="4" size="1" name="RXTX4" description="RXTX4" />
+		<BitField start="5" size="1" name="RXTX5" description="RXTX5" />
+		<BitField start="6" size="1" name="RXTX6" description="RXTX6" />
+		<BitField start="7" size="1" name="RXTX7" description="RXTX7" />
+		<BitField start="8" size="1" name="RXTX8" description="RXTX8" />
+		<BitField start="9" size="1" name="RXTX9" description="RXTX9" />
+		<BitField start="10" size="1" name="RXTX10" description="RXTX10" />
+		<BitField start="11" size="1" name="RXTX11" description="RXTX11" />
+		<BitField start="12" size="1" name="RXTX12" description="RXTX12" />
+		<BitField start="13" size="1" name="RXTX13" description="RXTX13" />
+		<BitField start="14" size="1" name="RXTX14" description="RXTX14" />
+		<BitField start="15" size="1" name="RXTX15" description="RXTX15" />
+	</Register>
+	<Register start="+0x4" size="0" name="OE" access="Read/Write" description="Input/Output" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="1" name="OE0" description="OE0" />
+		<BitField start="1" size="1" name="OE1" description="OE1" />
+		<BitField start="2" size="1" name="OE2" description="OE2" />
+		<BitField start="3" size="1" name="OE3" description="OE3" />
+		<BitField start="4" size="1" name="OE4" description="OE4" />
+		<BitField start="5" size="1" name="OE5" description="OE5" />
+		<BitField start="6" size="1" name="OE6" description="OE6" />
+		<BitField start="7" size="1" name="OE7" description="OE7" />
+		<BitField start="8" size="1" name="OE8" description="OE8" />
+		<BitField start="9" size="1" name="OE9" description="OE9" />
+		<BitField start="10" size="1" name="OE10" description="OE10" />
+		<BitField start="11" size="1" name="OE11" description="OE11" />
+		<BitField start="12" size="1" name="OE12" description="OE12" />
+		<BitField start="13" size="1" name="OE13" description="OE13" />
+		<BitField start="14" size="1" name="OE14" description="OE14" />
+		<BitField start="15" size="1" name="OE15" description="OE15" />
+	</Register>
+	<Register start="+0x8" size="0" name="FUNC" access="Read/Write" description="Function" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="2" name="FUNC0" description="FUNC0" />
+		<BitField start="2" size="2" name="FUNC1" description="FUNC1" />
+		<BitField start="4" size="2" name="FUNC2" description="FUNC2" />
+		<BitField start="6" size="2" name="FUNC3" description="FUNC3" />
+		<BitField start="8" size="2" name="FUNC4" description="FUNC4" />
+		<BitField start="10" size="2" name="FUNC5" description="FUNC5" />
+		<BitField start="12" size="2" name="FUNC6" description="FUNC6" />
+		<BitField start="14" size="2" name="FUNC7" description="FUNC7" />
+		<BitField start="16" size="2" name="FUNC8" description="FUNC8" />
+		<BitField start="18" size="2" name="FUNC9" description="FUNC9" />
+		<BitField start="20" size="2" name="FUNC10" description="FUNC10" />
+		<BitField start="22" size="2" name="FUNC11" description="FUNC11" />
+		<BitField start="24" size="2" name="FUNC12" description="FUNC12" />
+		<BitField start="26" size="2" name="FUNC13" description="FUNC13" />
+		<BitField start="28" size="2" name="FUNC14" description="FUNC14" />
+		<BitField start="30" size="2" name="FUNC15" description="FUNC15" />
+	</Register>
+	<Register start="+0xС" size="0" name="ANALOG" access="Read/Write" description="GPIO mode" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="1" name="ANALOG0" description="ANALOG0" />
+		<BitField start="1" size="1" name="ANALOG1" description="ANALOG1" />
+		<BitField start="2" size="1" name="ANALOG2" description="ANALOG2" />
+		<BitField start="3" size="1" name="ANALOG3" description="ANALOG3" />
+		<BitField start="4" size="1" name="ANALOG4" description="ANALOG4" />
+		<BitField start="5" size="1" name="ANALOG5" description="ANALOG5" />
+		<BitField start="6" size="1" name="ANALOG6" description="ANALOG6" />
+		<BitField start="7" size="1" name="ANALOG7" description="ANALOG7" />
+		<BitField start="8" size="1" name="ANALOG8" description="ANALOG8" />
+		<BitField start="9" size="1" name="ANALOG9" description="ANALOG9" />
+		<BitField start="10" size="1" name="ANALOG10" description="ANALOG10" />
+		<BitField start="11" size="1" name="ANALOG11" description="ANALOG11" />
+		<BitField start="12" size="1" name="ANALOG12" description="ANALOG12" />
+		<BitField start="13" size="1" name="ANALOG13" description="ANALOG13" />
+		<BitField start="14" size="1" name="ANALOG14" description="ANALOG14" />
+		<BitField start="15" size="1" name="ANALOG15" description="ANALOG15" />
+	</Register>
+	<Register start="+0x10" size="0" name="PULL" access="Read/Write" description="GPIO pull" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="1" name="PULL_DOWN_0" description="PULL_DOWN_0" />
+		<BitField start="1" size="1" name="PULL_DOWN_1" description="PULL_DOWN_1" />
+		<BitField start="2" size="1" name="PULL_DOWN_2" description="PULL_DOWN_2" />
+		<BitField start="3" size="1" name="PULL_DOWN_3" description="PULL_DOWN_3" />
+		<BitField start="4" size="1" name="PULL_DOWN_4" description="PULL_DOWN_4" />
+		<BitField start="5" size="1" name="PULL_DOWN_5" description="PULL_DOWN_5" />
+		<BitField start="6" size="1" name="PULL_DOWN_6" description="PULL_DOWN_6" />
+		<BitField start="7" size="1" name="PULL_DOWN_7" description="PULL_DOWN_7" />
+		<BitField start="8" size="1" name="PULL_DOWN_8" description="PULL_DOWN_8" />
+		<BitField start="9" size="1" name="PULL_DOWN_9" description="PULL_DOWN_9" />
+		<BitField start="10" size="1" name="PULL_DOWN_10" description="PULL_DOWN_10" />
+		<BitField start="11" size="1" name="PULL_DOWN_11" description="PULL_DOWN_11" />
+		<BitField start="12" size="1" name="PULL_DOWN_12" description="PULL_DOWN_12" />
+		<BitField start="13" size="1" name="PULL_DOWN_13" description="PULL_DOWN_13" />
+		<BitField start="14" size="1" name="PULL_DOWN_14" description="PULL_DOWN_14" />
+		<BitField start="15" size="1" name="PULL_DOWN_15" description="PULL_DOWN_15" />
+		<BitField start="16" size="1" name="PULL_UP_0" description="PULL_UP_0" />
+		<BitField start="17" size="1" name="PULL_UP_1" description="PULL_UP_1" />
+		<BitField start="18" size="1" name="PULL_UP_2" description="PULL_UP_2" />
+		<BitField start="19" size="1" name="PULL_UP_3" description="PULL_UP_3" />
+		<BitField start="20" size="1" name="PULL_UP_4" description="PULL_UP_4" />
+		<BitField start="21" size="1" name="PULL_UP_5" description="PULL_UP_5" />
+		<BitField start="22" size="1" name="PULL_UP_6" description="PULL_UP_6" />
+		<BitField start="23" size="1" name="PULL_UP_7" description="PULL_UP_7" />
+		<BitField start="24" size="1" name="PULL_UP_8" description="PULL_UP_8" />
+		<BitField start="25" size="1" name="PULL_UP_9" description="PULL_UP_9" />
+		<BitField start="26" size="1" name="PULL_UP_10" description="PULL_UP_10" />
+		<BitField start="27" size="1" name="PULL_UP_11" description="PULL_UP_11" />
+		<BitField start="28" size="1" name="PULL_UP_12" description="PULL_UP_12" />
+		<BitField start="29" size="1" name="PULL_UP_13" description="PULL_UP_13" />
+		<BitField start="30" size="1" name="PULL_UP_14" description="PULL_UP_14" />
+		<BitField start="31" size="1" name="PULL_UP_15" description="PULL_UP_15" />
+	</Register>
+	<Register start="+0x14" size="0" name="PD" access="Read/Write" description="GPIO output type" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="1" name="PD0" description="PD0" />
+		<BitField start="1" size="1" name="PD1" description="PD1" />
+		<BitField start="2" size="1" name="PD2" description="PD2" />
+		<BitField start="3" size="1" name="PD3" description="PD3" />
+		<BitField start="4" size="1" name="PD4" description="PD4" />
+		<BitField start="5" size="1" name="PD5" description="PD5" />
+		<BitField start="6" size="1" name="PD6" description="PD6" />
+		<BitField start="7" size="1" name="PD7" description="PD7" />
+		<BitField start="8" size="1" name="PD8" description="PD8" />
+		<BitField start="9" size="1" name="PD9" description="PD9" />
+		<BitField start="10" size="1" name="PD10" description="PD10" />
+		<BitField start="11" size="1" name="PD11" description="PD11" />
+		<BitField start="12" size="1" name="PD12" description="PD12" />
+		<BitField start="13" size="1" name="PD13" description="PD13" />
+		<BitField start="14" size="1" name="PD14" description="PD14" />
+		<BitField start="15" size="1" name="PD15" description="PD15" />
+		<BitField start="16" size="1" name="SHM0" description="SHM0" />
+		<BitField start="17" size="1" name="SHM1" description="SHM1" />
+		<BitField start="18" size="1" name="SHM2" description="SHM2" />
+		<BitField start="19" size="1" name="SHM3" description="SHM3" />
+		<BitField start="20" size="1" name="SHM4" description="SHM4" />
+		<BitField start="21" size="1" name="SHM5" description="SHM5" />
+		<BitField start="22" size="1" name="SHM6" description="SHM6" />
+		<BitField start="23" size="1" name="SHM7" description="SHM7" />
+		<BitField start="24" size="1" name="SHM8" description="SHM8" />
+		<BitField start="25" size="1" name="SHM9" description="SHM9" />
+		<BitField start="26" size="1" name="SHM10" description="SHM10" />
+		<BitField start="27" size="1" name="SHM11" description="SHM11" />
+		<BitField start="28" size="1" name="SHM12" description="SHM12" />
+		<BitField start="29" size="1" name="SHM13" description="SHM13" />
+		<BitField start="30" size="1" name="SHM14" description="SHM14" />
+		<BitField start="31" size="1" name="SHM15" description="SHM15" />
+	</Register>
+	<Register start="+0x18" size="0" name="PWR" access="Read/Write" description="GPIO power" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="2" name="PWR0" description="PWR0" />
+		<BitField start="2" size="2" name="PWR1" description="PWR1" />
+		<BitField start="4" size="2" name="PWR2" description="PWR2" />
+		<BitField start="6" size="2" name="PWR3" description="PWR3" />
+		<BitField start="8" size="2" name="PWR4" description="PWR4" />
+		<BitField start="10" size="2" name="PWR5" description="PWR5" />
+		<BitField start="12" size="2" name="PWR6" description="PWR6" />
+		<BitField start="14" size="2" name="PWR7" description="PWR7" />
+		<BitField start="16" size="2" name="PWR8" description="PWR8" />
+		<BitField start="18" size="2" name="PWR9" description="PWR9" />
+		<BitField start="20" size="2" name="PWR10" description="PWR10" />
+		<BitField start="22" size="2" name="PWR11" description="PWR11" />
+		<BitField start="24" size="2" name="PWR12" description="PWR12" />
+		<BitField start="26" size="2" name="PWR13" description="PWR13" />
+		<BitField start="28" size="2" name="PWR14" description="PWR14" />
+		<BitField start="30" size="2" name="PWR15" description="PWR15" />
+	</Register>
+	<Register start="+0x1C" size="0" name="GFEN" access="Read/Write" description="GPIO filter" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="1" name="GFEN0" description="GFEN0" />
+		<BitField start="1" size="1" name="GFEN1" description="GFEN1" />
+		<BitField start="2" size="1" name="GFEN2" description="GFEN2" />
+		<BitField start="3" size="1" name="GFEN3" description="GFEN3" />
+		<BitField start="4" size="1" name="GFEN4" description="GFEN4" />
+		<BitField start="5" size="1" name="GFEN5" description="GFEN5" />
+		<BitField start="6" size="1" name="GFEN6" description="GFEN6" />
+		<BitField start="7" size="1" name="GFEN7" description="GFEN7" />
+		<BitField start="8" size="1" name="GFEN8" description="GFEN8" />
+		<BitField start="9" size="1" name="GFEN9" description="GFEN9" />
+		<BitField start="10" size="1" name="GFEN10" description="GFEN10" />
+		<BitField start="11" size="1" name="GFEN11" description="GFEN11" />
+		<BitField start="12" size="1" name="GFEN12" description="GFEN12" />
+		<BitField start="13" size="1" name="GFEN13" description="GFEN13" />
+		<BitField start="14" size="1" name="GFEN14" description="GFEN14" />
+		<BitField start="15" size="1" name="GFEN15" description="GFEN15" />
+	</Register>
+	<Register start="+0x20" size="0" name="SETTX" access="WriteOnly" description="GPIO set" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="1" name="SETTX0" description="SETTX0" />
+		<BitField start="1" size="1" name="SETTX1" description="SETTX1" />
+		<BitField start="2" size="1" name="SETTX2" description="SETTX2" />
+		<BitField start="3" size="1" name="SETTX3" description="SETTX3" />
+		<BitField start="4" size="1" name="SETTX4" description="SETTX4" />
+		<BitField start="5" size="1" name="SETTX5" description="SETTX5" />
+		<BitField start="6" size="1" name="SETTX6" description="SETTX6" />
+		<BitField start="7" size="1" name="SETTX7" description="SETTX7" />
+		<BitField start="8" size="1" name="SETTX8" description="SETTX8" />
+		<BitField start="9" size="1" name="SETTX9" description="SETTX9" />
+		<BitField start="10" size="1" name="SETTX10" description="SETTX10" />
+		<BitField start="11" size="1" name="SETTX11" description="SETTX11" />
+		<BitField start="12" size="1" name="SETTX12" description="SETTX12" />
+		<BitField start="13" size="1" name="SETTX13" description="SETTX13" />
+		<BitField start="14" size="1" name="SETTX14" description="SETTX14" />
+		<BitField start="15" size="1" name="SETTX15" description="SETTX15" />
+	</Register>
+	<Register start="+0x24" size="0" name="CLRTX" access="WriteOnly" description="GPIO clear" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="1" name="CLRTX0" description="CLRTX0" />
+		<BitField start="1" size="1" name="CLRTX1" description="CLRTX1" />
+		<BitField start="2" size="1" name="CLRTX2" description="CLRTX2" />
+		<BitField start="3" size="1" name="CLRTX3" description="CLRTX3" />
+		<BitField start="4" size="1" name="CLRTX4" description="CLRTX4" />
+		<BitField start="5" size="1" name="CLRTX5" description="CLRTX5" />
+		<BitField start="6" size="1" name="CLRTX6" description="CLRTX6" />
+		<BitField start="7" size="1" name="CLRTX7" description="CLRTX7" />
+		<BitField start="8" size="1" name="CLRTX8" description="CLRTX8" />
+		<BitField start="9" size="1" name="CLRTX9" description="CLRTX9" />
+		<BitField start="10" size="1" name="CLRTX10" description="CLRTX10" />
+		<BitField start="11" size="1" name="CLRTX11" description="CLRTX11" />
+		<BitField start="12" size="1" name="CLRTX12" description="CLRTX12" />
+		<BitField start="13" size="1" name="CLRTX13" description="CLRTX13" />
+		<BitField start="14" size="1" name="CLRTX14" description="CLRTX14" />
+		<BitField start="15" size="1" name="CLRTX15" description="CLRTX15" />
+	</Register>
+	<Register start="+0x28" size="0" name="RDTX" access="ReadOnly" description="GPIO read" reset_value="0x00000000" reset_mask="0xFFFFFFFF">
+		<BitField start="0" size="1" name="RDTX0" description="RDTX0" />
+		<BitField start="1" size="1" name="RDTX1" description="RDTX1" />
+		<BitField start="2" size="1" name="RDTX2" description="RDTX2" />
+		<BitField start="3" size="1" name="RDTX3" description="RDTX3" />
+		<BitField start="4" size="1" name="RDTX4" description="RDTX4" />
+		<BitField start="5" size="1" name="RDTX5" description="RDTX5" />
+		<BitField start="6" size="1" name="RDTX6" description="RDTX6" />
+		<BitField start="7" size="1" name="RDTX7" description="RDTX7" />
+		<BitField start="8" size="1" name="RDTX8" description="RDTX8" />
+		<BitField start="9" size="1" name="RDTX9" description="RDTX9" />
+		<BitField start="10" size="1" name="RDTX10" description="RDTX10" />
+		<BitField start="11" size="1" name="RDTX11" description="RDTX11" />
+		<BitField start="12" size="1" name="RDTX12" description="RDTX12" />
+		<BitField start="13" size="1" name="RDTX13" description="RDTX13" />
+		<BitField start="14" size="1" name="RDTX14" description="RDTX14" />
+		<BitField start="15" size="1" name="RDTX15" description="RDTX15" />
+	</Register>
+</RegisterGroup>
+</Processor>
